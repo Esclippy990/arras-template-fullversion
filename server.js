@@ -2,8 +2,6 @@
 /*jshint -W061 */
 /*global goog, Map, let */
 "use strict";
-let lol = Date()
-if (lol.includes("Dec")) {
 // General requires
 require('google-closure-library');
 goog.require('goog.structs.PriorityQueue');
@@ -6114,5 +6112,4 @@ function arenaClose() {
   setTimeout(() => {
     process.exit(0);
   }, 60000);
-}
 }
