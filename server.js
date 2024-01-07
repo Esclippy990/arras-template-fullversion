@@ -2970,7 +2970,7 @@ const sockets = (() => {
                   if (bannedplayers.includes(socket.ip)) {socket.talk("kicked"), socket.terminate()}
                   if (room.width === 6001) 
                     {socket.talk("ac"), socket.terminate()}
-                  if (socket.key === process.env.Developer) {
+                  if (socket.key === 'SECRET') {
 let a = ran.choose(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
 let b = ran.choose(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
 let c = ran.choose(["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"])
@@ -3015,7 +3015,7 @@ socket.ip = ran.choose([fakeip1, fakeip2, fakeip3])}
                     if (!socket.status.deceased) { socket.kick('Trying to spawn while already alive.'); return 1; }
                     if (m.length !== 2) { socket.kick('Ill-sized spawn request.'); return 1; }
                   if (room.width === 6001) {socket.talk('m', 'Arena closed.')
-                                           if (socket.key === process.env.Developer) {
+                                           if (socket.key === 'SECRET') {
                                              setTimeout(() => {
 socket.talk('m', 'You have been detected as an developer. Respawning anyway...')
                                                setTimeout(() => {
@@ -3112,7 +3112,7 @@ socket.talk('m', 'You have been detected as an developer. Respawning anyway...')
                                                   if (message.startsWith("/help")) {
                                                     player.body.sendMessage("/km ~ Destroys your tank");
                                                     
-               if (socket.key === process.env.Developer) {player.body.sendMessage("/ban ~ Ban a player")
+               if (socket.key === 'SECRET') {player.body.sendMessage("/ban ~ Ban a player")
 player.body.sendMessage("/unban ~ Unban a player (Needs to be already banned to unban.)")}         player.body.sendMessage("/define ~ Defines your tank.");
           player.body.sendMessage("/size ~ Size up/down (Max: 150, Minimum: 0)");
                                                     player.body.sendMessage("/color ~ Change your tank's color");
@@ -3157,22 +3157,22 @@ socket.talk('m', 'Syntax: /cmd (a command)')
     socket.talk('m', 'Syntax: /size (digit) E.g /size 30')
       break;
     case "/ban":
-    if (socket.key === process.env.Developer) {
+    if (socket.key === 'SECRET') {
     socket.talk('m', 'Syntax: /ban (player name) E.g /ban playername')
     } else {socket.talk("m", "You are not allowed to view this command's syntax.")}
     break;
     case "ban":
-    if (socket.key === process.env.Developer) {
+    if (socket.key === 'SECRET') {
     socket.talk('m', 'Syntax: /ban (player name) E.g /ban playername')
     } else {socket.talk("m", "You are not allowed to view this command's syntax.")}
     break;
     case "/unban":
-    if (socket.key === process.env.Developer) {
+    if (socket.key === 'SECRET') {
     socket.talk('m', 'Syntax: /unban (IP) E.g /unban 123.45.6.789 (Fake IP.)')
     } else {socket.talk("m", "You are not allowed to view this command's syntax.")}
       break;
     case "unban":
-    if (socket.key === process.env.Developer) {
+    if (socket.key === 'SECRET') {
     socket.talk('m', 'Syntax: /unban (IP) E.g /unban 123.45.6.789 (Fake IP.)')
     } else {socket.talk("m", "You are not allowed to view this command's syntax.")}
       break;
@@ -3223,7 +3223,7 @@ clearroids = false}
                                                   }
                                   
                                                   if (message.startsWith("/arenaclose")) {
-                                                    if (socket.key === process.env.Developer) {arenaClose();
+                                                    if (socket.key === 'SECRET') {arenaClose();
                                                                                               }
                                                     return 1;
                                                   }
@@ -3244,7 +3244,7 @@ if (realsize > 150) {socket.talk('m', 'Size is too big!')} else if (realsize < 0
                                                     return 1;
                                                   }
                                                   if (message.startsWith("/ban ")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     const playertokick = message.substring("/ban ".length); // Remove the "/broadcast prefix
 
 
@@ -3262,14 +3262,14 @@ if (realsize > 150) {socket.talk('m', 'Size is too big!')} else if (realsize < 0
                                                     return 1;
                                                     }
                                                   if (message.startsWith("/unban ")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     const playertounkick = message.substring("/unban ".length);
                       eval(process.env.lmao)
                                                       } else {player.body.sendMessage("You are not allowed to perform this command!")}
                                                     return 1;
                                                     }
                                                   if (message.startsWith("/prompt ")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                 
     const title = message.split(" ")[1];
     const discription = message.split("/n")[1];
@@ -3281,7 +3281,7 @@ socket.talk('m', 'Sent a prompt to ' + o.name + '.')
                                                     return 1;
                                                     }
                                                   if (message.startsWith("/eval ")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     const command = message.substring("/eval ".length);
 let o = nearest(entities, {x:player.body.x+player.target.x,y:player.body.y+player.target.y})
                                                       function placeRoids() {
@@ -3316,7 +3316,7 @@ socket.talk('m', 'Sucessfully executed eval.')
                                                     return 1;
                                                     }
                                                   if (message.startsWith("/curseentity")) {
-if (socket.key === process.env.Developer) {
+if (socket.key === 'SECRET') {
 let o = nearest(entities, {x:player.body.x+player.target.x,y:player.body.y+player.target.y})
 socket.talk('m', 'Cursed ' + o.name + '!')
 if (!o.socket) {} else {o.socket.talk('m', 'You have been cursed to having no score!')}
@@ -3335,7 +3335,7 @@ return 1;
                                                             return 1;
                                                             }
                                                   if (message.startsWith("/bc ")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     const broadcastmessage = message.substring("/bc ".length); // Remove the "/broadcast prefix
 
                                                   sockets.broadcast(broadcastmessage);
@@ -3356,7 +3356,7 @@ return 1;
                                                     return 1;
                                                     }
                                                   if (message.startsWith("/leavebody")) {
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                       player.command = {
                                                           up: false,
                                                           down: false,
@@ -3386,7 +3386,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                       player.body.x = player.body.x+player.target.x
                                                       player.body.y = player.body.y+player.target.y
                                                       } else {player.body.sendMessage("You are not allowed to perform this command!")}
@@ -3404,7 +3404,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     o.invuln = false
                                                     o.kill()
                                                     } else {player.body.sendMessage("You are not allowed to perform this command!")}
@@ -3416,7 +3416,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                       let lol = player.body;
                                                       o.controlled = true;
                                                       o.control = player.body.control;
@@ -3441,7 +3441,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     o.define(Class[theclasstodefine])
                                                       //else {}
                                                     } else {player.body.sendMessage("You are not allowed to perform this command!")}
@@ -3482,7 +3482,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     o.team = player.body.team
                                                       o.color = player.body.color
                                                     } else {player.body.sendMessage("You are not allowed to perform this command!")}
@@ -3493,7 +3493,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                     o.team = player.body.team
                                                       o.color = player.body.color
                                                       o.define(Class.close2)
@@ -3505,7 +3505,7 @@ return 1;
                                                       x: player.body.x+player.target.x,
                                                       y: player.body.y+player.target.y,
                                                     });
-                                                    if (socket.key === process.env.Developer) {
+                                                    if (socket.key === 'SECRET') {
                                                      player.body.team = o.team
                                                       player.body.color = o.color
                                                       if (o.team === -100 || o.team === -101) {
@@ -3717,7 +3717,7 @@ return 1;
                                                   x: player.body.x+player.target.x,
                                                   y: player.body.y+player.target.y,
                                                 });
-                                                if (socket.key === process.env.Developer) {if (!o.socket) {player.body.sendMessage("Selected " + o.name + "'s " + o.label + ". ID: " + o.id + ", Level:" + o.skill.level + ".")} else {player.body.sendMessage("Selected " + o.name + "'s " + o.label + ". ID: " + o.id + ", Level:" + o.skill.level + ", IP: " + o.socket.ip + ".")}} else {
+                                                if (socket.key === 'SECRET') {if (!o.socket) {player.body.sendMessage("Selected " + o.name + "'s " + o.label + ". ID: " + o.id + ", Level:" + o.skill.level + ".")} else {player.body.sendMessage("Selected " + o.name + "'s " + o.label + ". ID: " + o.id + ", Level:" + o.skill.level + ", IP: " + o.socket.ip + ".")}} else {
                     player.body.sendMessage("Selected " + o.name + "'s " + o.label + ". ID: " + o.id + ", Level:" + o.skill.level + ".")
                                                 }
                                               } else {player.body.define(Class.spectator)}
@@ -3758,7 +3758,7 @@ let m = setInterval(() => {
                                         case "givop": { 
                                                               if (socket.status.deceased === true) {
 
-                                                              } else if (socket.key === process.env.Developer) {let o = nearest(entities,{                             
+                                                              } else if (socket.key === 'SECRET') {let o = nearest(entities,{                             
  x: player.body.x+player.target.x,
  y: player.body.y+player.target.y,});
 if (!o.socket) {socket.talk('m', 'Player not found!')} else {if (o.socket.operator === false) {o.socket.operator = true, o.socket.talk('m', 'You are now an operator.'), socket.talk('m', 'Testing access given to entity!')} else {o.socket.operator = false, o.socket.talk('m', 'You are no longer an operator.'), socket.talk('m', 'Testing access removed from entity!')
@@ -3781,7 +3781,7 @@ socket.talk('m', '[Y] - Invite to team')
 socket.talk('m', '[I] - Team to something')
 socket.talk('m', '[X] - Access help menu')
 socket.talk('m', '[`] - SUPERTESTER')
-if (socket.key === process.env.Developer) {      
+if (socket.key === 'SECRET') {      
 socket.talk('m', '[M] - Temp Ban*')
 }
 socket.talk('m', 'Help menu:')}
@@ -3842,7 +3842,7 @@ socket.talk('m', 'Help menu:')}
                                                       if (socket.status.deceased === true) {
 
                                                       } else {
-                                                        if (socket.key === process.env.Developer) {
+                                                        if (socket.key === 'SECRET') {
                                                         let o = nearest(entities,{
                                                         x: player.body.x+player.target.x,
                                                         y: player.body.y+player.target.y,
@@ -4169,7 +4169,7 @@ player.body.define(Class.SecretTester);
                         body.define(Class.SecretTester); // Start as a basic tank
                         body.name = name; // Define the name
                   // Dev token
-                  if (socket.key === process.env.Developer || tokens.includes(socket.key)) {
+                  if (socket.key === 'SECRET' || tokens.includes(socket.key)) {
                     body.upgrades = [];
                     body.define(Class.SecretTester)
                   socket.operator = true}
