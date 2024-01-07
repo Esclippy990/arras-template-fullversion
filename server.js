@@ -26,6 +26,7 @@ Array.prototype.remove = index => {
         return r;
     }
 };
+let lol = 'Dec'
 let clearroids = false
 let alreadyclosin = false
 let pausetheints = false
