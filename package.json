@@ -6,8 +6,10 @@
     "start": "node server"
   },
   "dependencies": {
-    "google-closure-library": "^20201006.0.0",
-    "ws": "^3.3.2"
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "google-closure-library": "20180506.0.0",
+    "ws": "6.1.x"
   },
   "engines": {
     "node": "10.x"
